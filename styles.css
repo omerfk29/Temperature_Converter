@@ -1,13 +1,15 @@
 * {
-    background-color: rgb(43, 162, 192);
     margin: 2px;
     padding: 2px;
-    border: 1px solid rgb(0, 0, 0);
+    border: 0px solid rgb(0, 0, 0);
     overflow: hidden;
     border-radius: 7px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+     color: white;
 }
-
+body {
+    background-image: url(moon.jpg);
+}
 .content {
     width: 100%;
     min-height: 100vh;
@@ -27,14 +29,15 @@
 h1 {
     font-size: x-large;
     margin-bottom: 20px;
+    text-shadow: 2px 2px 2px gray;
 }
 
 button {
     cursor: pointer;
-    background-color: orange;
     padding: 2px;
-    box-shadow: 2px 2px 2px black;
+    box-shadow: 2px 2px 2px rgb(255, 254, 254);
     font-weight: bold;
+    color: black;
 }
 
 button:active {
@@ -42,20 +45,33 @@ button:active {
     transform: translateY(2px);
 }
 .converter {
-    background-color: grey;
     padding: 10px;
     margin-top: 10px;
-    border:  2px solid black;
-    box-shadow: 2px 2px 2px black;
+    border:  2px solid rgb(255, 248, 248);
+    box-shadow: 2px 2px 2px rgb(255, 255, 255);
 }
 
 input::placeholder {
-    color: lightblue;
+    color: rgb(0, 0, 0);
 }
 
 #result {
     display: none;
     margin-top: 15px;
     box-shadow: 1px 1px 1px black;
-    background-color: rgb(0, 252, 34);
+    border: 2px solid rgb(255, 255, 255);
+    background-color: gray;
+}
+
+select {
+    border: 2px solid rgb(255, 255, 255);
+    color: black;
+}
+
+option {
+    background-color: rgb(0, 0, 0);
+}
+
+input {
+    color:black;
 }
