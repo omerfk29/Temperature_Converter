@@ -20,8 +20,13 @@
     transform: scale(1.5);
 }
 
+#enter{
+    margin-bottom: 0px;
+}
+
 h1 {
     font-size: x-large;
+    margin-bottom: 20px;
 }
 
 #button {
@@ -29,6 +34,7 @@ h1 {
     background-color: orange;
     padding: 2px;
     box-shadow: 2px 2px 2px black;
+    font-weight: bold;
 }
 
 #button:active {
@@ -38,7 +44,7 @@ h1 {
 .converter {
     background-color: grey;
     padding: 10px;
-    margin-top: 20px;
+    margin-top: 10px;
     border:  2px solid black;
     box-shadow: 2px 2px 2px black;
 }
@@ -48,5 +54,8 @@ input::placeholder {
 }
 
 #result {
+    display: none;
     margin-top: 15px;
+    box-shadow: 1px 1px 1px black;
+    background-color: rgb(0, 252, 34);
 }
