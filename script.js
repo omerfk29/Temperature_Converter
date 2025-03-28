@@ -1,6 +1,7 @@
 const input = document.getElementById("input");
 const button = document.getElementById("button");
 const result = document.getElementById("result");
+const clearButton = document.getElementById("clear");
 
 
 function noInput() {
@@ -14,8 +15,6 @@ function noInput() {
     }
 }
 
-button.addEventListener("click", noInput);
-
 function calculateNumber() {
     let fahrenheit = parseFloat(input.value)
     return Math.floor((fahrenheit - 32) * (5/9));
@@ -27,4 +26,11 @@ function hideResult() {
     }
 }
 
+function clearInput() {
+    input.value = "";
+    return result.style.display = "none";
+}
+
+clearButton.addEventListener("click", clearInput);
 input.addEventListener("input", hideResult);
+button.addEventListener("click", noInput);
