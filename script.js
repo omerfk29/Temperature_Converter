@@ -2,6 +2,8 @@ const input = document.getElementById("input");
 const button = document.getElementById("button");
 const result = document.getElementById("result");
 const clearButton = document.getElementById("clear");
+const changeFrom = document.getElementById("unit-from");
+const changeTo = document.getElementById("unit-to");
 
 
 function noInput() {
