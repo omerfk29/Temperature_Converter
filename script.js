@@ -1,26 +1,68 @@
 const input = document.getElementById("input");
-const button = document.getElementById("button");
+const convertButton = document.getElementById("button");
 const result = document.getElementById("result");
 const clearButton = document.getElementById("clear");
 const changeFrom = document.getElementById("unit-from");
 const changeTo = document.getElementById("unit-to");
 
 
-function noInput() {
-    if(input.value === "") {
-        alert("You gotta enter a number!")
-        result.innerText = "";
-        result.style.display = "none";
-    } else {
-        result.innerText = `${input.value} is ${calculateNumber()} celsius`;
-        result.style.display = "block";
+function convertCalculator() {
+    const conversions = {
+        "FtoC": convertFtoC,
+        "CtoF": convertCtoF,
+        "FtoK": convertFtoK,
+        "KtoF": convertKtoF,
+        "CtoK": convertCtoK,
+        "KtoC": convertKtoC
     }
+
+   const conversionKey = `${changeFrom.value}to${changeTo.value}`;
+   
+   if (conversions[conversionKey]) {
+    const resultValue = conversions[conversionKey](parseFloat(input.value));
+    result.style.display = "block";
+    result.innerText = `The converted temp is: ${resultValue} ${changeTo.options[changeTo.selectedIndex].text}.`;
+   } else {
+    result.style.display = "none";
+   }
 }
 
-function calculateNumber() {
-    let fahrenheit = parseFloat(input.value)
-    return Math.floor((fahrenheit - 32) * (5/9));
+
+
+
+
+function convertFtoC(F) {
+    return Math.floor((F - 32) * 5 / 9);
 }
+
+function convertCtoF(C) {
+    return Math.floor((C * 9 / 5) + 32);
+}
+
+function convertFtoK(F) {
+    return Math.floor((5 / 9 * (F - 32) + 273.15));
+}
+
+function convertKtoF(K) {
+    return Math.floor((9 / 5 * (K - 273.15) + 32));   
+}
+
+function convertCtoK(C) {
+    return Math.floor((C + 273.15));
+}
+
+function convertKtoC(K) {
+    return Math.floor((K - 273.15));
+}
+
+
+function noInput() {
+        if(input.value === "") {
+            alert("You gotta enter a number!")
+            result.innerText = "";
+            result.style.display = "none";
+        }
+    }
 
 function hideResult() {
     if(input.value === "") {  
@@ -33,6 +75,10 @@ function clearInput() {
     return result.style.display = "none";
 }
 
+
 clearButton.addEventListener("click", clearInput);
 input.addEventListener("input", hideResult);
-button.addEventListener("click", noInput);
+convertButton.addEventListener("click", function() {
+    noInput();            
+    convertCalculator();  
+});

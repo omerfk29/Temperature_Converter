@@ -9,22 +9,22 @@
 <body>
     <main class="content">
         <h1>Temperature Converter</h1>
-        <p id="enter">Enter your Fahrenheit Temperature</p>
+        <p id="enter">Enter your Temperature</p>
         <div class="converter">
             <label for="from">From:</label>
-            <select name="from" id="unit">
-                <option id="F" value="F">°F</option>
-                <option id="C" value="C">°C</option>
-                <option id="K" value="K">K</option>
+            <select name="from" id="unit-from">
+                <option value="F">Fahrenheit</option>
+                <option value="C">Celsius</option>
+                <option value="K">Kelvin</option>
             </select>
             <input id="input" type="number" required placeholder="enter number here" />
             <label for="to">To:</label>
-            <select name="to">
-                <option id="F" value="F">°F</option>
-                <option id="C" value="C">°C</option>
-                <option id="K" value="K">K</option>
+            <select name="to" id="unit-to">
+                <option value="F">Fahrenheit</option>
+                <option value="C">Celsius</option>
+                <option value="K">Kelvin</option>
             </select>
-            <button id="button">Calculate</button>
+            <button id="button">Convert</button>
             <button id="clear">Clear</button>
         </div>
         <p id="result" ></p>

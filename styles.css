@@ -52,7 +52,7 @@ button:active {
 }
 
 input::placeholder {
-    color: rgb(0, 0, 0);
+    color: grey;
 }
 
 #result {
