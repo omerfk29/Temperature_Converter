@@ -27,10 +27,6 @@ function convertCalculator() {
    }
 }
 
-
-
-
-
 function convertFtoC(F) {
     return Math.floor((F - 32) * 5 / 9);
 }
@@ -55,7 +51,6 @@ function convertKtoC(K) {
     return Math.floor((K - 273.15));
 }
 
-
 function noInput() {
         if(input.value === "") {
             alert("You gotta enter a number!")
@@ -75,10 +70,13 @@ function clearInput() {
     return result.style.display = "none";
 }
 
-
 clearButton.addEventListener("click", clearInput);
-input.addEventListener("input", hideResult);
+input.addEventListener("click", hideResult);
 convertButton.addEventListener("click", function() {
     noInput();            
     convertCalculator();  
+});
+input.value.addEventListener("keydown",function() {
+    NoInput();            
+    convertCalculator();
 });
