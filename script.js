@@ -4,6 +4,7 @@ const result = document.getElementById("result");
 const clearButton = document.getElementById("clear");
 const changeFrom = document.getElementById("unit-from");
 const changeTo = document.getElementById("unit-to");
+const body = document.querySelector("body");
 
 
 function convertCalculator() {
@@ -13,17 +14,18 @@ function convertCalculator() {
         "FtoK": convertFtoK,
         "KtoF": convertKtoF,
         "CtoK": convertCtoK,
-        "KtoC": convertKtoC
+        "KtoC": convertKtoC,
     }
 
    const conversionKey = `${changeFrom.value}to${changeTo.value}`;
    
-   if (conversions[conversionKey]) {
+   if (conversions[conversionKey] && input.value > 0) {
     const resultValue = conversions[conversionKey](parseFloat(input.value));
     result.style.display = "block";
     result.innerText = `The converted temp is: ${resultValue} ${changeTo.options[changeTo.selectedIndex].text}.`;
    } else {
-    result.style.display = "none";
+    result.style.display = "block";
+    result.innerText = "Enter a temperature";
    }
 }
 
@@ -60,23 +62,21 @@ function noInput() {
     }
 
 function hideResult() {
-    if(input.value === "") {  
-        result.style.display = "none";  
+    if(input.value > "") {  
+        result.style.display = "block";  
     }
 }
 
 function clearInput() {
-    input.value = "";
+    if(input.value === "") {
     return result.style.display = "none";
+    }
 }
 
 clearButton.addEventListener("click", clearInput);
-input.addEventListener("click", hideResult);
+input.addEventListener("keydown", hideResult);
 convertButton.addEventListener("click", function() {
     noInput();            
     convertCalculator();  
 });
-input.value.addEventListener("keydown",function() {
-    NoInput();            
-    convertCalculator();
-});
+input.addEventListener("keyup", convertCalculator);
