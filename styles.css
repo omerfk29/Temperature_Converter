@@ -4,7 +4,7 @@
     border: 0px solid rgb(0, 0, 0);
     overflow: hidden;
     border-radius: 7px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
      color: white;
 }
 body {
@@ -36,10 +36,16 @@ button {
     color: black;
 }
 
+button:hover {
+    background-color: black;
+    color: white;
+}
+
 button:active {
     box-shadow: none;
     transform: translateY(2px);
 }
+
 .converter {
     padding: 10px;
     margin-top: 10px;

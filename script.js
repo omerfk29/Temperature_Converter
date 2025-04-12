@@ -24,8 +24,7 @@ function convertCalculator() {
     result.style.display = "block";
     result.innerText = `The converted temp is: ${resultValue} ${changeTo.options[changeTo.selectedIndex].text}.`;
    } else {
-    result.style.display = "block";
-    result.innerText = "Enter a temperature";
+    result.style.display = "none";
    }
 }
 
@@ -62,14 +61,15 @@ function noInput() {
     }
 
 function hideResult() {
-    if(input.value > "") {  
-        result.style.display = "block";  
+    if(input.value > "0") {  
+        result.style.display = "block";
     }
 }
 
 function clearInput() {
-    if(input.value === "") {
-    return result.style.display = "none";
+    if(input.value > "0") {
+         result.style.display = "none";
+         input.value = " ";
     }
 }
 
